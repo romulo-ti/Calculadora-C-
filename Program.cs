@@ -3,7 +3,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        // adição - Pamplo
+
     float a;
     float b;
 
@@ -16,7 +16,8 @@ internal class Program
     Console.WriteLine("resultado  " + (a + b));
 
 
-   // multiplicação - Pamplo
+    Console.WriteLine("resultado  " + (a - b));
+      
     float c;
     float d;
     
@@ -25,6 +26,5 @@ internal class Program
     Console.WriteLine("segundo número: ");
     d = float.Parse(Console.ReadLine());
 
-    Console.WriteLine("resultado  " + (c * d));
     }
 }
