@@ -100,30 +100,40 @@ class Program
                     }
                     break;
                 case 8:
-                    if (historico.Count == 0)
+                    Console.Write("Aperte c para excluir a última operação: ");
+                    var tecla = Console.ReadKey(true);
+                    if (tecla.KeyChar == 'c' || tecla.KeyChar == 'C')
                     {
-                        Console.WriteLine("Nenhum cálculo realizado ainda.");
-                    }
-                    else
-                    {
-                        historico.RemoveAt(historico.Count - 1);
-                        Console.WriteLine("Foi removido o último resultado do console!");
-                    }
-                    Console.WriteLine("Histórico atual-------------------------");
-                    if (historico.Count == 0)
-                    {
-                        Console.WriteLine("Nenhum cálculo realizado ainda.");
-                    }
-                    else
-                    {
-                        foreach (var item in historico)
+                        if (historico.Count == 0)
                         {
-                            Console.WriteLine(item);
+                            Console.WriteLine("Nenhum cálculo realizado ainda.");
                         }
+                        else
+                        {
+                            historico.RemoveAt(historico.Count - 1);
+                            Console.WriteLine("Foi removido o último resultado do console!");
+                        }
+                        Console.WriteLine("Histórico atual-------------------------");
+                        if (historico.Count == 0)
+                        {
+                            Console.WriteLine("Nenhum cálculo realizado ainda.");
+                        }
+                        else
+                        {
+                            foreach (var item in historico)
+                            {
+                                Console.WriteLine(item);
+                            }
+                        }
+                        Console.Clear();
+                        Console.WriteLine("Console limpo com sucesso!");
+
                     }
-                    Console.Clear();
-                    Console.WriteLine("Console limpo com sucesso!");
-                    
+                    else
+                    {
+                        Console.WriteLine("Outra tecla foi pressionada!");
+                    }
+                   
                     break;
             }
         } while (opcao != 9);
