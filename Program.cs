@@ -20,7 +20,8 @@ class Program
             Console.WriteLine("5 - Potenciação");
             Console.WriteLine("6 - Raiz Quadrada (Informe um novo número)");
             Console.WriteLine("7 - Histórico");
-            Console.WriteLine("8 - Sair");
+            Console.WriteLine("8 - Limpar console");
+            Console.WriteLine("9 - Sair");
             Console.Write("Opção: ");
             opcao = int.Parse(Console.ReadLine());
             if (opcao >= 1 && opcao <= 6)
@@ -98,8 +99,44 @@ class Program
                         }
                     }
                     break;
+                case 8:
+                    Console.Write("Aperte c para excluir a última operação: ");
+                    var tecla = Console.ReadKey(true);
+                    if (tecla.KeyChar == 'c' || tecla.KeyChar == 'C')
+                    {
+                        if (historico.Count == 0)
+                        {
+                            Console.WriteLine("Nenhum cálculo realizado ainda.");
+                        }
+                        else
+                        {
+                            historico.RemoveAt(historico.Count - 1);
+                            Console.WriteLine("Foi removido o último resultado do console!");
+                        }
+                        Console.WriteLine("Histórico atual-------------------------");
+                        if (historico.Count == 0)
+                        {
+                            Console.WriteLine("Nenhum cálculo realizado ainda.");
+                        }
+                        else
+                        {
+                            foreach (var item in historico)
+                            {
+                                Console.WriteLine(item);
+                            }
+                        }
+                        Console.Clear();
+                        Console.WriteLine("Console limpo com sucesso!");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Outra tecla foi pressionada!");
+                    }
+                   
+                    break;
             }
-        } while (opcao != 8);
+        } while (opcao != 9);
     }
 
     public static double Adicao(double a, double b) => a + b;
@@ -121,4 +158,3 @@ class Program
         }
     }
 }
-
